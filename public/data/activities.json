@@ -1,0 +1,35 @@
+[
+  {
+    "id": "1",
+    "title": "Åpen møteplass for ungdom",
+    "description": "Et lavterskeltilbud der ungdom mellom 13 og 18 år kunne møtes på ettermiddager og kvelder gjennom hele skoleåret. Møteplassen var bemannet med to miljøarbeidere og holdt åpent fire dager i uken.\n\nUngdommene var med på å forme aktivitetene selv – fra matlaging og spillkvelder til leksehjelp og friluftsturer. Et eget ungdomsråd møttes månedlig for å planlegge programmet og fordele et lite eget budsjett.\n\nTilbudet nådde særlig ungdom som ellers deltok lite i organiserte fritidsaktiviteter, og flere fant veien videre inn i lag og foreninger gjennom kontaktene de fikk på møteplassen.",
+    "responsible": "Kulturenheten, Lillevik kommune",
+    "location": "Lillevik",
+    "total_cost": 420000,
+    "funding_source": "Bufdir – Tilskudd til inkludering av barn og unge 2024",
+    "year": 2024,
+    "tags": ["barn og unge", "inkludering", "fritid", "møteplass"]
+  },
+  {
+    "id": "2",
+    "title": "Utstyrssentral for friluftsliv",
+    "description": "Kommunen etablerte en gratis utstyrssentral der barn, unge og familier kunne låne utstyr til friluftsliv og fysisk aktivitet – ski, skøyter, sykler, telt og fiskeutstyr.\n\nUtlånet ble driftet i samarbeid med frivilligsentralen og en lokal idrettsklubb. Målet var å senke terskelen for å delta i aktiviteter uavhengig av familiens økonomi.\n\nI løpet av det første året ble det registrert over 600 utlån, og sentralen ble et naturlig samlingspunkt i nærmiljøet.",
+    "responsible": "Frivilligsentralen i Storås",
+    "location": "Storås",
+    "total_cost": 250000,
+    "funding_source": "Bufdir – Tilskudd til utstyrssentraler 2024",
+    "year": 2024,
+    "tags": ["fritid", "økonomi", "friluftsliv", "utlån"]
+  },
+  {
+    "id": "3",
+    "title": "Sommerjobb og mentorordning for ungdom",
+    "description": "Et kombinert tiltak med betalt sommerjobb og en mentorordning for ungdom i alderen 16 til 19 år som sto i fare for å falle utenfor skole og arbeidsliv.\n\nGjennom fire uker fikk deltakerne arbeidserfaring i kommunale enheter og lokale bedrifter, kombinert med ukentlige samlinger og en fast mentor som fulgte dem opp.\n\nFlere av deltakerne fortsatte i deltidsjobb hos arbeidsgiverne etter sommeren, og tilbakemeldingene fra både ungdom og arbeidsgivere var svært gode.",
+    "responsible": "NAV og oppvekstsektoren, Fjordbygda kommune",
+    "location": "Fjordbygda",
+    "total_cost": 680000,
+    "funding_source": "Bufdir – Tilskudd til inkludering av barn og unge 2023",
+    "year": 2023,
+    "tags": ["barn og unge", "arbeid", "mentor", "inkludering"]
+  }
+]

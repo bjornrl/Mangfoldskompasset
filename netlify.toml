@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Don't cache the data file, so editing data/activities.json and redeploying
+# always serves the latest version.
+[[headers]]
+  for = "/data/activities.json"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
