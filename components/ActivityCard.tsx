@@ -1,5 +1,5 @@
 import type { Activity } from "@/lib/types";
-import { formatCost, truncate, firstParagraph } from "@/lib/format";
+import { truncate, firstParagraph } from "@/lib/format";
 
 interface Props {
   activity: Activity;
@@ -24,11 +24,7 @@ export default function ActivityCard({ activity, onSelect }: Props) {
 
       <p className="mt-1 text-sm text-muted">{activity.responsible}</p>
 
-      <p className="mt-5 text-2xl font-light text-ink">
-        {formatCost(activity.total_cost)}
-      </p>
-
-      <p className="mt-1 text-xs text-muted">
+      <p className="mt-5 text-xs text-muted">
         {truncate(activity.funding_source, 64)}
       </p>
 
