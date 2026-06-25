@@ -15,6 +15,10 @@ export interface Activity {
   funding_source: string;
   /** Year the activity was funded / carried out. */
   year: number;
+  /** Collaboration partners (Samarbeidspartnere). Empty string if none stated. */
+  partners: string;
+  /** Contact person (Kontaktperson) — name and role/organisation. */
+  contact: string;
   /** Free-text tags for filtering. */
   tags: string[];
 }

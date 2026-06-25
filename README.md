@@ -52,6 +52,8 @@ objekt og fyll inn nye verdier:
   "total_cost": 250000,
   "funding_source": "Bufdir – Tilskudd til X-ordningen 2024",
   "year": 2024,
+  "partners": "Samarbeidspartner 1, Samarbeidspartner 2",
+  "contact": "Navn Navnesen (rolle/organisasjon)",
   "tags": ["barn og unge", "inkludering"]
 }
 ```
@@ -68,6 +70,8 @@ objekt og fyll inn nye verdier:
 | `total_cost`     | tall         | Total kostnad i hele kroner, **uten** mellomrom eller «kr» (f.eks. `250000`). |
 | `funding_source` | tekst        | Finansieringskilde, f.eks. «Bufdir – Tilskudd til …».                        |
 | `year`           | tall         | Året tiltaket ble finansiert/gjennomført (f.eks. `2024`).                    |
+| `partners`       | tekst        | Samarbeidspartnere. Bruk tom streng `""` hvis ingen. Vises kun i detaljvisningen. |
+| `contact`        | tekst        | Kontaktperson – navn og rolle/organisasjon. Vises kun i detaljvisningen.     |
 | `tags`           | liste m/tekst | Temaord brukt til filtrering, f.eks. `["fritid", "inkludering"]`.           |
 
 ### Regler å huske

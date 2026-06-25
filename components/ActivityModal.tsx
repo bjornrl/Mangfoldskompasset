@@ -43,10 +43,12 @@ export default function ActivityModal({ activity, onClose }: Props) {
   const meta: MetaRow[] = [
     { label: "Ansvarlig", value: activity.responsible },
     { label: "Sted", value: activity.location },
-    { label: "Totalkostnad", value: formatCost(activity.total_cost) },
+    { label: "Totalt budsjett", value: formatCost(activity.total_cost) },
     { label: "Finansieringskilde", value: activity.funding_source },
     { label: "År", value: String(activity.year) },
-  ];
+    { label: "Kontaktperson", value: activity.contact },
+    { label: "Samarbeidspartnere", value: activity.partners },
+  ].filter((row) => row.value.trim() !== "");
 
   return (
     <div
@@ -85,14 +87,19 @@ export default function ActivityModal({ activity, onClose }: Props) {
 
         <div className="px-8 py-8">
           <dl className="grid grid-cols-1 gap-x-8 gap-y-5 border-b border-line pb-8 sm:grid-cols-2">
-            {meta.map((row) => (
-              <div key={row.label}>
-                <dt className="text-xs uppercase tracking-wider text-muted">
-                  {row.label}
-                </dt>
-                <dd className="mt-1 text-sm text-ink">{row.value}</dd>
-              </div>
-            ))}
+            {meta.map((row) => {
+              const wide =
+                row.label === "Finansieringskilde" ||
+                row.label === "Samarbeidspartnere";
+              return (
+                <div key={row.label} className={wide ? "sm:col-span-2" : ""}>
+                  <dt className="text-xs uppercase tracking-wider text-muted">
+                    {row.label}
+                  </dt>
+                  <dd className="mt-1 text-sm text-ink">{row.value}</dd>
+                </div>
+              );
+            })}
           </dl>
 
           <div className="mt-8 space-y-4">
