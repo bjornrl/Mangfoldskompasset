@@ -50,7 +50,7 @@ export default function Home() {
       .then((data: Grant[]) => {
         if (!cancelled) setGrants(data);
       })
-      .catch(() => {});
+      .catch(() => { });
     return () => {
       cancelled = true;
     };
@@ -148,8 +148,11 @@ export default function Home() {
       {status === "ready" && (
         <>
           <p className="py-6 text-sm text-slate">
-            Viser {filtered.length} av {activities.length} tiltak
+            {activities.length} tiltak
           </p>
+          {/* <p className="py-6 text-sm text-slate">
+            Viser {filtered.length} av {activities.length} tiltak
+          </p> */}
 
           {filtered.length > 0 ? (
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
