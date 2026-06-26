@@ -107,14 +107,14 @@ export default function Home() {
           aria-hidden
         />
         <p className="mt-5 text-xs font-medium uppercase tracking-[0.2em] text-cerulean">
-          Tiltak finansiert av Bufdir
+          Gode tiltak for likestilling og inkludering
         </p>
         <h1 className="mt-4 font-heading text-4xl font-semibold leading-tight text-ink sm:text-5xl">
           Mangfoldskompasset
         </h1>
         <p className="mt-5 text-base leading-relaxed text-ink/80">
-          En kuratert samling av kommunale tiltak finansiert gjennom Bufdirs
-          tilskuddsordninger. Hvert kort viser hva som ble gjort, hvem som sto
+          En kuratert samling av gode tiltak for likestilling og inkludering av skjeive.
+          Hvert kort viser hva som ble gjort, hvem som sto
           bak, hvor det skjedde, hva det kostet og hvor pengene kom fra – til
           inspirasjon for andre kommuner.
         </p>
@@ -148,19 +148,23 @@ export default function Home() {
       {status === "ready" && (
         <>
           <p className="py-6 text-sm text-slate">
-            {activities.length} tiltak
+            {filtered.length + grants.length} tiltak
           </p>
-          {/* <p className="py-6 text-sm text-slate">
-            Viser {filtered.length} av {activities.length} tiltak
-          </p> */}
 
-          {filtered.length > 0 ? (
+          {filtered.length + grants.length > 0 ? (
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {filtered.map((activity) => (
                 <ActivityCard
                   key={activity.id}
                   activity={activity}
                   onSelect={setActive}
+                />
+              ))}
+              {grants.map((grant) => (
+                <GrantCard
+                  key={grant.id}
+                  grant={grant}
+                  onSelect={setActiveGrant}
                 />
               ))}
             </div>
@@ -170,31 +174,6 @@ export default function Home() {
             </p>
           )}
         </>
-      )}
-
-      {grants.length > 0 && (
-        <section className="mt-20 border-t border-line pt-12">
-          <h2 className="font-heading text-2xl font-semibold leading-tight text-ink">
-            Flere innvilgede tilskudd
-          </h2>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/70">
-            Et bredere register over prosjekter som har fått tilskudd gjennom
-            ordningen for kjønns- og seksualitetsmangfold (LHBT+). Mindre
-            detaljert enn samlingen over – klikk for søker, beløp og kapittel.
-          </p>
-
-          <p className="py-6 text-sm text-slate">{grants.length} tilskudd</p>
-
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-            {grants.map((grant) => (
-              <GrantCard
-                key={grant.id}
-                grant={grant}
-                onSelect={setActiveGrant}
-              />
-            ))}
-          </div>
-        </section>
       )}
 
       {active && (

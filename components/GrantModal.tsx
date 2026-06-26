@@ -59,7 +59,6 @@ export default function GrantModal({ grant, onClose }: Props) {
       label: "Ubrukt beløp",
       value: grant.unused_amount > 0 ? formatCost(grant.unused_amount) : "",
     },
-    { label: "Budsjettpost", value: grant.budget_post },
     { label: "Tilskuddsordning", value: grant.scheme, wide: true },
   ].filter((row) => row.value.trim() !== "");
 
@@ -115,6 +114,15 @@ export default function GrantModal({ grant, onClose }: Props) {
               </div>
             ))}
           </dl>
+
+          <div className="mt-6">
+            <p className="text-xs font-medium uppercase tracking-wider text-cyan">
+              Finansiert av
+            </p>
+            <span className="mt-2 inline-flex items-center bg-cerulean/12 px-2.5 py-1 text-xs font-medium text-cerulean">
+              Helsedirektoratet
+            </span>
+          </div>
         </div>
       </div>
     </div>

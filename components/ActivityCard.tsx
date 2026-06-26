@@ -27,10 +27,6 @@ export default function ActivityCard({ activity, onSelect }: Props) {
 
       <p className="mt-1 text-sm text-muted">{activity.responsible}</p>
 
-      <p className="mt-5 text-xs text-muted">
-        {truncate(activity.funding_source, 64)}
-      </p>
-
       <p className="mt-5 text-sm leading-relaxed text-ink/80">
         {truncate(firstParagraph(activity.description), 150)}
       </p>

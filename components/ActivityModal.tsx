@@ -122,6 +122,15 @@ export default function ActivityModal({ activity, onClose }: Props) {
             })}
           </dl>
 
+          <div className="mt-6">
+            <p className="text-xs font-medium uppercase tracking-wider text-cyan">
+              Finansiert av
+            </p>
+            <span className="mt-2 inline-flex items-center bg-cerulean/12 px-2.5 py-1 text-xs font-medium text-cerulean">
+              Bufdir
+            </span>
+          </div>
+
           <div className="mt-8 space-y-4">
             {paragraphs.map((p, i) => (
               <p key={i} className="text-[15px] leading-relaxed text-ink/90">
