@@ -1,20 +1,24 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { Activity } from "@/lib/types";
+import type { Activity, Grant } from "@/lib/types";
 import ActivityCard from "@/components/ActivityCard";
 import FilterBar from "@/components/FilterBar";
 import ActivityModal from "@/components/ActivityModal";
+import GrantCard from "@/components/GrantCard";
+import GrantModal from "@/components/GrantModal";
 
 type LoadState = "loading" | "ready" | "error";
 
 export default function Home() {
   const [activities, setActivities] = useState<Activity[]>([]);
+  const [grants, setGrants] = useState<Grant[]>([]);
   const [status, setStatus] = useState<LoadState>("loading");
 
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [active, setActive] = useState<Activity | null>(null);
+  const [activeGrant, setActiveGrant] = useState<Grant | null>(null);
 
   // Fetch the data fresh on every load — no rebuild needed to add activities.
   useEffect(() => {
@@ -32,6 +36,21 @@ export default function Home() {
       .catch(() => {
         if (!cancelled) setStatus("error");
       });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // Supplementary, less-detailed grant registry — loaded independently so a
+  // failure here never blocks the curated activities above.
+  useEffect(() => {
+    let cancelled = false;
+    fetch("data/grants.json", { cache: "no-store" })
+      .then((res) => (res.ok ? res.json() : Promise.reject()))
+      .then((data: Grant[]) => {
+        if (!cancelled) setGrants(data);
+      })
+      .catch(() => {});
     return () => {
       cancelled = true;
     };
@@ -150,8 +169,40 @@ export default function Home() {
         </>
       )}
 
+      {grants.length > 0 && (
+        <section className="mt-20 border-t border-line pt-12">
+          <h2 className="font-heading text-2xl font-semibold leading-tight text-ink">
+            Flere innvilgede tilskudd
+          </h2>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/70">
+            Et bredere register over prosjekter som har fått tilskudd gjennom
+            ordningen for kjønns- og seksualitetsmangfold (LHBT+). Mindre
+            detaljert enn samlingen over – klikk for søker, beløp og kapittel.
+          </p>
+
+          <p className="py-6 text-sm text-slate">{grants.length} tilskudd</p>
+
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            {grants.map((grant) => (
+              <GrantCard
+                key={grant.id}
+                grant={grant}
+                onSelect={setActiveGrant}
+              />
+            ))}
+          </div>
+        </section>
+      )}
+
       {active && (
         <ActivityModal activity={active} onClose={() => setActive(null)} />
+      )}
+
+      {activeGrant && (
+        <GrantModal
+          grant={activeGrant}
+          onClose={() => setActiveGrant(null)}
+        />
       )}
 
       <footer className="mt-20 border-t border-line pt-8 text-xs text-muted">
