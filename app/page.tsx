@@ -83,10 +83,14 @@ export default function Home() {
   return (
     <main className="mx-auto max-w-content px-6 py-16 sm:px-8">
       <header className="max-w-2xl">
-        <p className="text-xs uppercase tracking-[0.2em] text-muted">
+        <div
+          className="h-1 w-20 rounded-full bg-gradient-to-r from-strawberry via-tuscan to-cerulean"
+          aria-hidden
+        />
+        <p className="mt-5 text-xs font-medium uppercase tracking-[0.2em] text-cerulean">
           Tiltak finansiert av Bufdir
         </p>
-        <h1 className="mt-4 text-4xl font-light leading-tight text-ink sm:text-5xl">
+        <h1 className="mt-4 font-heading text-4xl font-semibold leading-tight text-ink sm:text-5xl">
           Mangfoldskompasset
         </h1>
         <p className="mt-5 text-base leading-relaxed text-ink/80">
@@ -124,7 +128,7 @@ export default function Home() {
 
       {status === "ready" && (
         <>
-          <p className="py-6 text-sm text-muted">
+          <p className="py-6 text-sm text-slate">
             Viser {filtered.length} av {activities.length} tiltak
           </p>
 
